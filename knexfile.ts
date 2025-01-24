@@ -4,7 +4,6 @@ import { knexSnakeCaseMappers } from 'objection';
 
 dotenv.config();
 
-const connectionString = process.env.DB_STRING;
 const commonConfig = {
   client: process.env.DB_PROVIDER,
   migrations: {
@@ -18,11 +17,11 @@ const commonConfig = {
     extension: 'ts',
   },
   connection: {
-    connectionString: connectionString,
-    ssl: {
-      ca: process.env.DB_SSL_CA,
-      rejectUnauthorized: false,
-    },
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
   },
   ...knexSnakeCaseMappers(),
 };
