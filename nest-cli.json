@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "plugins": [
+      "@nestjs/swagger"
+    ],
+    "webpack": true
+  },
+  "projects": {
+    "nest-auth": {
+      "type": "library",
+      "root": "libs/nest-auth",
+      "entryFile": "index",
+      "sourceRoot": "libs/nest-auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/nest-auth/tsconfig.lib.json"
+      }
+    }
+  }
+}
